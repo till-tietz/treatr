@@ -1,0 +1,19 @@
+Package: treatr
+Title: Aggregate Treatment Indicators Linked to Geographic Units to Larger Geographic Units. Convert Binary Treatment Indicator into Continuous Percentage of Unit Treated Indicator. 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Till",
+           family = "Tietz",
+           role = c("aut", "cre"),
+           email = "ttietz2014@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr,
+  sf,
+  future,
+  furrr
+RoxygenNote: 6.1.1
