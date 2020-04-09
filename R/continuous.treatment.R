@@ -7,7 +7,7 @@
 #' to filter out "invalid" overlaps between geographic units arising as an artefact of these mismatches,
 #' by way of a user set filter value or a generic inbuilt method.
 #'
-#' @param input.level An sf data frame with geometries and associated binary treatment indicator. The treatment indicator column should be named "treatment".
+#' @param input.level An sf data frame with geometries and associated binary treatment indicator. The treatment indicator should be named "treatment" and is assumed to be a numeric vector with 0 representing untreated and 1 representing treated units.
 #' @param output.level An sf data frame with geometries of the geographic units the function should output a continuous treatment indicator for.
 #' @param coordinate.system Four digit epsg code of the projection you wish to use. Defaults to 4326.
 #' @param filter Smallest area an intersection between the input.level and output.level geographic units may have to be considered valid. All intersections with a smaller area will be filtered out. Defaults to NULL.
