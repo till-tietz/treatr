@@ -70,6 +70,7 @@ continuous.treatment <- function(input.level, output.level, coordinate.system = 
       }
       intersection <- intersection %>%
         dplyr::select(-c(area_intersect,area_fraction,treatment))
+      return(intersection)
       ##########
     } else {
       if(!is.null(filter) & filter.automatic == FALSE){
@@ -91,6 +92,7 @@ continuous.treatment <- function(input.level, output.level, coordinate.system = 
         }
         intersection <- intersection %>%
           dplyr::select(-c(area_intersect,area_fraction,treatment))
+        return(intersection)
         ##########
       } else {
         if(is.null(filter) & filter.automatic == TRUE){
@@ -114,12 +116,12 @@ continuous.treatment <- function(input.level, output.level, coordinate.system = 
 
           intersection <- intersection %>%
             dplyr::select(-c(area_intersect,area_fraction,treatment))
+          return(intersection)
         }
       }
     }
   }
-  future::plan(multiprocess)
-  cont_treat_out <- furrr::future_map((1:nrow(output_level)), ~cont_treat(.x), .progress = TRUE)
+  cont_treat_out <- purrr::map((1:nrow(output_level)), ~cont_treat(.x), .progress = TRUE)
 
   treatment_continuous <- dplyr::bind_rows(cont_treat_out, .id = "column_label")%>%
     dplyr::select(-c(column_label))
