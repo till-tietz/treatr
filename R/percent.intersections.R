@@ -1,6 +1,6 @@
-#' @title percent overlap function 
+#' @title percent overlap function
 #'
-#' @description This function allows you to compute the percentage area of a larger scale geographic 
+#' @description This function allows you to compute the percentage area of a larger scale geographic
 #' unit that is covered by a smaller scale geographic unit.
 #' Considering potential for mismatches in geometries between geographic units the function allows you
 #' to filter out "invalid" overlaps between geographic units arising as an artefact of these mismatches,
@@ -37,12 +37,12 @@ percent.intersections <- function(input.level, output.level, coordinate.system =
     }
   }
   intersects <- sf::st_intersects(output_level, input_level)
-  
+
   intersect_area <- function(x){
     area_output <- output_level %>% dplyr::slice(.,x)
     area_input <- input_level %>% dplyr::slice(., intersects[[x]])
     intersection <- sf::st_intersection(area_output, area_input)
-    
+
     intersection <- intersection%>%
       dplyr::mutate(area_intersect = sf::st_area(intersection))%>%
       dplyr::mutate(area_intersect = as.character(area_intersect))%>%
@@ -71,7 +71,7 @@ percent.intersections <- function(input.level, output.level, coordinate.system =
   }
   intersect_area_out <- purrr::map((1:nrow(output_level)), ~intersect_area(.x))
   intersections <- dplyr::bind_rows(intersect_area_out, .id = "column_label")%>%
-    dplyr::rename(area_percent = area_fraction)
+    dplyr::rename(area_percent = area_fraction)%>%
     dplyr::select(-c(column_label))
   return(intersections)
 }
