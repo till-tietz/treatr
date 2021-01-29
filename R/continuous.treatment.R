@@ -23,14 +23,14 @@ continuous.treatment <- function(input.level, output.level, coordinate.system = 
   } else {
     if(class(input.level)[[1]] != "sf"){ stop("input.level not of class sf. please input sf object with st_read function")
     } else {
-      input_level <- input.level %>% sf::st_transform(coordinate.system) %>% sf::st_buffer(.,0)
+      input_level <- sf::st_buffer(sf::st_transform(input.level,coordinate.system),0)
     }
   }
   if(missing(output.level)){ stop("missing output.level")
   } else {
     if(class(output.level)[[1]] != "sf"){ stop("output.level not of class sf. please input sf object with st_read function")
     } else {
-      output_level <- output.level %>% sf::st_transform(coordinate.system) %>% sf::st_buffer(.,0)
+      output_level <- sf::st_buffer(sf::st_transform(output.level,coordinate.system),0)
       output_level <- output_level %>%
         dplyr::mutate(area = sf::st_area(output_level))%>%
         dplyr::mutate(area = as.character(area))%>%

@@ -1,5 +1,5 @@
 Package: treatr
-Title: Aggregate Treatment Indicators Linked to Geographic Units to Larger Geographic Units. Convert Binary Treatment Indicator into Continuous Percentage of Unit Treated Indicator. 
+Title: Aggregate Treatment Indicators Linked to Geographic Units to Larger Geographic Units. Convert Binary Treatment Indicator into Continuous Percentage of Unit Treated Indicator 
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Till",
@@ -7,12 +7,14 @@ Authors@R:
            role = c("aut", "cre"),
            email = "ttietz2014@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: CC0
+Description: Given a treatment indicator linked to geographic units treatr allows you to compute the percent area of an overlapping larger geographic unit that was treated. 
+    You can also simply calculate the percent area of intersection between sets of two geographic units. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dplyr,
-  sf,
-  purrr
-RoxygenNote: 6.1.1
+    dplyr,
+    sf,
+    purrr,
+    magrittr
+RoxygenNote: 7.1.1

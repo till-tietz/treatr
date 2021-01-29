@@ -4,8 +4,13 @@
 \alias{percent.intersections}
 \title{percent overlap function}
 \usage{
-percent.intersections(input.level, output.level,
-  coordinate.system = 4326, filter = NULL, filter.automatic = FALSE)
+percent.intersections(
+  input.level,
+  output.level,
+  coordinate.system = 4326,
+  filter = NULL,
+  filter.automatic = FALSE
+)
 }
 \arguments{
 \item{input.level}{An sf data frame.}
@@ -22,7 +27,7 @@ percent.intersections(input.level, output.level,
 A data frame named "intersections" with a column "area_percent" indicating the percentage area of an output.level geographic unit covered by a specific input.level geographic unit.
 }
 \description{
-This function allows you to compute the percentage area of a larger scale geographic 
+This function allows you to compute the percentage area of a larger scale geographic
 unit that is covered by a smaller scale geographic unit.
 Considering potential for mismatches in geometries between geographic units the function allows you
 to filter out "invalid" overlaps between geographic units arising as an artefact of these mismatches,

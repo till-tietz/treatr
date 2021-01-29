@@ -4,8 +4,13 @@
 \alias{continuous.treatment}
 \title{continuous treatment indicator function}
 \usage{
-continuous.treatment(input.level, output.level, coordinate.system = 4326,
-  filter = NULL, filter.automatic = FALSE)
+continuous.treatment(
+  input.level,
+  output.level,
+  coordinate.system = 4326,
+  filter = NULL,
+  filter.automatic = FALSE
+)
 }
 \arguments{
 \item{input.level}{An sf data frame with geometries and associated binary treatment indicator. The treatment indicator should be named "treatment" and is assumed to be a numeric vector with 0 representing untreated and 1 representing treated units.}
